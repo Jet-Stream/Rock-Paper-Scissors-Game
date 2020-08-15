@@ -10,35 +10,31 @@
                 function humanPlay(){  //take input from user, standardize capitalization
                     let playerChoice = document.getElementById("playerText").value;
                     playerChoice = playerChoice.toLowerCase();
-                    console.log('You chose '  + playerChoice);
+                    console.log(`You chose ${playerChoice}`)
                     return playerChoice;}
-                const humanSelection = humanPlay()
 
                 function computerPlay(){  // randomly return "rock", "paper" or "scissors"
                     const options = ['rock', 'paper', 'scissors'];
                     let compChoice = options[Math.floor(Math.random() * options.length)];
-                    console.log('The computer chose '+ compChoice);
+                    console.log(`The computer chose ${compChoice}`);
                     return compChoice; }
-                const computerSelection = computerPlay()
 
-                function oneRound(humanSelection, computerSelection){//calculate the winner, or a draw if selections are the same
-                    let hs;
-                    hs = humanSelection;
-                    let cs;
-                    cs = computerSelection;
-                    if (hs === cs){
-                    
-                        console.log(`Oh. You both chose ${hs}. Alright, we\'ll call it a draw.`);
+                function oneRound(humanPlay, computerPlay){//calculate the winner, or a draw if selections are the same
+                    let hp;
+                    hp = humanPlay;
+                    let cp;
+                    cp = computerPlay;
+                    if (hp === cp){
+                        console.log('Draw');
                         return ('draw')}
                     
-                    else{
-                        return ('invalid entry!'); }
- 
-            }   
+                    else {
+                        console.log('someone won');
+                        return ('someone won'); } 
+                        }   
+            humanPlay();
+            computerPlay();
             oneRound();
-
-    
         </script>
-        
     </body>
 </html>
