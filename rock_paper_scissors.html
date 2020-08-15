@@ -1,12 +1,44 @@
-<script>
-    function computerPlay{
-        // need to randomly return "rock", "paper" or "scissors"
-    }
-    function oneRound(playerSelection, computerSelection){ //for calculating the winner
-        playerLower = playerSelection.toLowerCase();
-        return "You lose! Paper beats Rock";
-    }
-    function game{
-        // creates a 5-round game, keeps score of wins and reports the winner and loser after round 5
-    }
-</script>
+<!DOCTYPE HTML>
+<html>
+    <head></head>
+    <body>
+        <h1>Let's Play Rock, Paper, Scissors!</h1>
+        <p>Enter your choice:</p>
+        <input type="text" id="playerText"></input>
+        <script>
+        
+                function humanPlay(){  //take input from user, standardize capitalization
+                    let playerChoice = document.getElementById("playerText").value;
+                    playerChoice = playerChoice.toLowerCase();
+                    console.log('You chose '  + playerChoice);
+                    return playerChoice;}
+                const humanSelection = humanPlay()
+
+                function computerPlay(){  // randomly return "rock", "paper" or "scissors"
+                    const options = ['rock', 'paper', 'scissors'];
+                    let compChoice = options[Math.floor(Math.random() * options.length)];
+                    console.log('The computer chose '+ compChoice);
+                    return compChoice; }
+                const computerSelection = computerPlay()
+
+                function oneRound(humanSelection, computerSelection){//calculate the winner, or a draw if selections are the same
+                    let hs;
+                    hs = humanSelection;
+                    let cs;
+                    cs = computerSelection;
+                    if (hs === cs){
+                    
+                        console.log(`Oh. You both chose ${hs}. Alright, we\'ll call it a draw.`);
+                        return ('draw')}
+                    
+                    else{
+                        return ('invalid entry!'); }
+ 
+            }   
+            oneRound();
+
+    
+        </script>
+        
+    </body>
+</html>
