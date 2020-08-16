@@ -2,39 +2,70 @@
 <html>
     <head></head>
     <body>
-        <h1>Let's Play Rock, Paper, Scissors!</h1>
-        <p>Enter your choice:</p>
-        <input type="text" id="playerText"></input>
+
         <script>
-        
-                function humanPlay(){  //take input from user, standardize capitalization
-                    let playerChoice = document.getElementById("playerText").value;
-                    playerChoice = playerChoice.toLowerCase();
-                    console.log(`You chose ${playerChoice}`)
-                    return playerChoice;}
-
-                function computerPlay(){  // randomly return "rock", "paper" or "scissors"
-                    const options = ['rock', 'paper', 'scissors'];
-                    let compChoice = options[Math.floor(Math.random() * options.length)];
-                    console.log(`The computer chose ${compChoice}`);
-                    return compChoice; }
-
-                function oneRound(humanPlay, computerPlay){//calculate the winner, or a draw if selections are the same
-                    let hp;
-                    hp = humanPlay;
-                    let cp;
-                    cp = computerPlay;
-                    if (hp === cp){
-                        console.log('Draw');
-                        return ('draw')}
+                
+                let playerWins = 0;
+                let computerWins = 0;
+                let draws = 0 ;
+                
+                function oneRound(){//calculate the winner, or a draw if selections are the same
+                        let hp = humanPlay();
+                        let cp = computerPlay();
                     
-                    else {
-                        console.log('someone won');
-                        return ('someone won'); } 
-                        }   
-            humanPlay();
-            computerPlay();
-            oneRound();
+                    function humanPlay(){  //take input from user, standardize capitalization
+                        let playerChoice = window.prompt('Enter your choice: ');
+                        playerChoice = playerChoice.toLowerCase();
+                        console.log(`You chose ${playerChoice}`);
+                        return playerChoice;  } 
+
+                    function computerPlay(){  // randomly return "rock", "paper" or "scissors" after player has made their choice
+                        const options = ['rock', 'paper', 'scissors'];
+                        let compChoice = options[Math.floor(Math.random() * options.length)];
+                        console.log(`The computer chose ${compChoice}`);
+                        return compChoice; } 
+                        if (hp === cp){
+                        draws += 1;
+                            return (`oh. You both picked ${hp}. Alright, we\'ll call it a draw.`);}
+                        else if (hp === 'rock' && cp === 'paper'){
+                            computerWins += 1;
+                            return ('computer wins, paper beats rock');}
+                        else if (hp === 'rock' && cp === 'scissors'){
+                            playerWins += 1;
+                            return ('you win, rock beats scissors');}
+                        else if (hp === 'paper' && cp === 'rock') {
+                            playerWins += 1;
+                            return ('you win, paper beats rock');}
+                        else if (hp === 'paper' && cp === 'scissors'){
+                            computerWins += 1;
+                            return('you lose, scissors beats paper');}
+                        else if (hp === 'scissors' && cp === 'paper'){
+                            playerWins += 1;
+                            return ('you win, scissors beats paper');}
+                        else if (hp === 'scissors' && cp === 'rock'){
+                            computerWins += 1;
+                            return ('you lose, rock beats scissors');}
+
+                        else {
+                            return ('gotta enter rock, paper or scissors dude'); } 
+                } 
+               function game(){
+                console.log('Let\'s play rock, paper, scissors!');
+                    console.log(oneRound());
+                    console.log(oneRound());
+                    console.log(oneRound());
+                    console.log(oneRound());
+                    console.log(oneRound());
+                    if (playerWins > computerWins){
+                        console.log(`And the winner is..you, with ${playerWins} victories!`)}
+                    else if(computerWins > playerWins){
+                        console.log(`And the winner is...the computer, with ${computerWins} victories!`)}
+                    else if (draws === 5){
+                        console.log(`Wow, you tied with the computer 5 times. It\'s a draw.`)
+                    }    
+               }
+               game()
+
         </script>
     </body>
 </html>
