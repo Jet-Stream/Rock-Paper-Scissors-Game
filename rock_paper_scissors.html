@@ -45,23 +45,19 @@
                         else if (hp === 'scissors' && cp === 'rock'){
                             computerWins += 1;
                             return ('you lose, rock beats scissors');}
-
                         else {
                             return ('gotta enter rock, paper or scissors dude'); } 
                 } 
                function game(){
                 console.log('Let\'s play rock, paper, scissors!');
-                    console.log(oneRound());
-                    console.log(oneRound());
-                    console.log(oneRound());
-                    console.log(oneRound());
-                    console.log(oneRound());
+                   for (i = 0; i < 6; i++){
+                        console.log(oneRound());}
                     if (playerWins > computerWins){
-                        console.log(`And the winner is..you, with ${playerWins} victories!`)}
+                        console.log(`And the winner is..you, with ${playerWins} victories!`);}
                     else if(computerWins > playerWins){
-                        console.log(`And the winner is...the computer, with ${computerWins} victories!`)}
+                        console.log(`And the winner is...the computer, with ${computerWins} victories!`);}
                     else if (draws === 5){
-                        console.log(`Wow, you tied with the computer 5 times. It\'s a draw.`)
+                        console.log(`Wow, you tied with the computer 5 times. It\'s a draw.`);
                     }    
                }
                game()
