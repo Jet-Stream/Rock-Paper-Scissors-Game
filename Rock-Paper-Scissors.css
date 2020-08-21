@@ -1,0 +1,26 @@
+
+body{
+    text-align: center;
+}
+p{
+    font-size: 18px;
+}
+.choice{
+    float:left;
+    padding: 10px;
+    margin: 25px;
+}
+#rockbutton{
+background-color: purple;
+color: white;
+
+}
+#paperbutton{
+    background-color: silver;
+}
+#scissorsbutton{
+    background-color: orangered;
+}
+#choicesdiv{
+    display: inline-block;
+}

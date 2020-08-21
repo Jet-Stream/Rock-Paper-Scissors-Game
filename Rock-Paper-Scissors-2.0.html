@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel ="stylesheet" href="Rock-Paper-Scissors.css">
+    </head>
+<body>
+    <h1> Let's Play Rock Paper Scissors!</h1>
+    <div id="instructions"><p>Make Your Choice:</p></div>
+<div id="choicesdiv">
+    <button class="choice" id="rockbutton">Rock</button>
+    <button class="choice" id="paperbutton">Paper</button>
+    <button class="choice" id="scissorsbutton">Scissors</button>
+</div>
+<div><p>You chose</p></div>
+</body>
+<script>
+    function oneRound(){//calculate the winner, or a draw if selections are the same
+                        let hp = humanPlay();
+                        let cp = computerPlay();
+                    
+                    function humanPlay(){  //take input from user, standardize capitalization
+                        let playerChoice = window.prompt('Enter your choice: ');
+                        playerChoice = playerChoice.toLowerCase();
+                        console.log(`You chose ${playerChoice}`);
+                        return playerChoice;  } 
+
+                    function computerPlay(){  // randomly return "rock", "paper" or "scissors" after player has made their choice
+                        const options = ['rock', 'paper', 'scissors'];
+                        let compChoice = options[Math.floor(Math.random() * options.length)];
+                        console.log(`The computer chose ${compChoice}`);
+                        return compChoice; } 
+                        if (hp === cp){
+                        draws += 1;
+                            return (`oh. You both picked ${hp}. Alright, we\'ll call it a draw.`);}
+                        else if (hp === 'rock' && cp === 'paper'){
+                            computerWins += 1;
+                            return ('computer wins, paper beats rock');}
+                        else if (hp === 'rock' && cp === 'scissors'){
+                            playerWins += 1;
+                            return ('you win, rock beats scissors');}
+                        else if (hp === 'paper' && cp === 'rock') {
+                            playerWins += 1;
+                            return ('you win, paper beats rock');}
+                        else if (hp === 'paper' && cp === 'scissors'){
+                            computerWins += 1;
+                            return('you lose, scissors beats paper');}
+                        else if (hp === 'scissors' && cp === 'paper'){
+                            playerWins += 1;
+                            return ('you win, scissors beats paper');}
+                        else if (hp === 'scissors' && cp === 'rock'){
+                            computerWins += 1;
+                            return ('you lose, rock beats scissors');}
+                        else {
+                            return ('gotta enter rock, paper or scissors dude'); } 
+                } 
+   const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            alert("nice click bro");
+        });
+    });
+</script>
+</html>
