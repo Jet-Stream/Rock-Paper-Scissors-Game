@@ -10,17 +10,31 @@ p{
     padding: 10px;
     margin: 25px;
 }
-#rockbutton{
-background-color: purple;
-color: white;
 
-}
-#paperbutton{
-    background-color: silver;
-}
-#scissorsbutton{
-    background-color: orangered;
-}
-#choicesdiv{
+#choicesDiv{
     display: inline-block;
+}
+#resultsDiv{
+    border: solid 10px black;
+}
+#youChose{
+    background-color: yellowgreen;
+    width: auto;
+}
+#computerChose{
+    background-color: orange;
+    width: auto;
+}
+#result{
+    background-color: blue;
+    color: white;
+}
+.score{
+    background-color: yellow;
+}
+#scoreDiv{
+    display: inline-block;
+}
+#victoryText{
+    background-color: orchid;
 }
